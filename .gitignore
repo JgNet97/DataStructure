@@ -1,0 +1,60 @@
+# Visual Studio 관련 임시 파일 및 빌드 폴더 무시
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# 빌드 출력 파일
+Debug/
+Release/
+x64/
+x86/
+ARM/
+ARM64/
+*.obj
+*.exe
+*.dll
+*.lib
+*.pdb
+*.ilk
+*.exp
+*.idb
+*.ipch
+*.aps
+*.ncb
+*.sdf
+*.opensdf
+*.tlog
+*.log
+
+# CMake 빌드 캐시 및 임시 파일
+CMakeCache.txt
+CMakeFiles/
+CMakeScripts/
+CTestTestfile.cmake
+cmake_install.cmake
+CMakeLists.txt.user
+CMakeUserPresets.json
+CMakePresets.json
+
+# vcpkg 관련 임시 파일
+vcpkg_installed/
+buildtrees/
+packages/
+
+# Visual Studio 코드 분석 및 캐시 파일
+*.opendb
+*.VC.db
+*.VC.opendb
+
+# IntelliSense 및 자동 생성 파일
+ipch/
+*.iobj
+*.ipdb
+
+# NuGet 패키지 관련 파일
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
