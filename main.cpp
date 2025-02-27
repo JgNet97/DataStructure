@@ -2,7 +2,6 @@
 
 int main() 
 {
-	printf("Hello World");
-
+	LinkedList<int> list;
 	return 0;
 }
