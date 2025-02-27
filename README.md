@@ -1,2 +1,5 @@
 # DataStructure
- 자료구조
+
+### 선형 자료구조 
+
+- Linked List
