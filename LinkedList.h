@@ -21,9 +21,10 @@ class LinkedList
 private:
 	Node _head;
 	Node _tail;
+	int	 _size;
 
 public:
-	LinkedList()
+	LinkedList() : _size(0)
 	{
 		_head.front = &_head;
 		_head.back = &_tail;
@@ -47,12 +48,20 @@ public:
 		newNode->front = tailFrontNode;
 		_tail.front = newNode;
 		newNode->back = _tail;
+
+		_size++;
 	}
 
 	// 뒤에 데이터 삭제
 	void PopBack() 
 	{
+		if (_size == 0) 
+		{
+			throw::std::runtime_error("삭제할 데이터가 없을때 PopBack");
+		}
 
+		
+		_size--;
 	}
 
 	// 중간 데이터 삽입
