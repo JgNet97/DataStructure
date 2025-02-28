@@ -12,11 +12,10 @@ int main()
 		list.PushBack(i);
 	}
 
-	while (!list.Empty()) 
+	for (LinkedList<int>::Iterator it = list.Begin(); it != list.End(); ++it) 
 	{
-		std::cout << list.Back() << std::endl;
-		list.PopBack();
+		std::cout << *it << " ";
 	}
-
+	std::cout << std::endl;
 	return 0;
 }

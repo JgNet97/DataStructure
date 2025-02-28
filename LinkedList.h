@@ -5,6 +5,10 @@
 template<typename T>
 class LinkedList
 {
+	/*
+		Node 
+	*/
+private:
 	class Node
 	{
 	public:
@@ -17,6 +21,26 @@ class LinkedList
 		Node() : front(nullptr), back(nullptr) {}
 		~Node() {}
 	};
+
+	/*
+		Iterator
+	*/
+public:
+	class Iterator
+	{
+	private:
+		Node* current;
+	
+	public:
+		Iterator(Node* node) : current(node) {}
+		
+		T& operator*() { return current->data; } 
+		Iterator& operator++() { current = current->back; return *this; }
+		Iterator& operator--() { current = current->front; return *this; }
+		bool operator!=(const Iterator& other) const { return current != other.current; }
+		bool operator==(const Iterator& other) const { return current == other.current; }	
+	};
+
 
 private:
 	Node _head;
@@ -38,10 +62,13 @@ public:
 
 	}
 
+	// Iterator 지원을 위한 함수
+	Iterator Begin() { return Iterator(_head.back); }
+	Iterator End() { return Iterator(&_tail); }
+
 	// 뒤에 데이터 추가
 	void PushBack(const T& data)
 	{
-		// [HEAD]<->[]<->[TAIL]
 		Node* tailFrontNode = _tail.front;
 		Node* newNode = new Node(data);
 		tailFrontNode->back = newNode;
