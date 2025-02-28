@@ -39,7 +39,7 @@ public:
 	}
 
 	// 뒤에 데이터 추가
-	void PushBack(const T& data) 
+	void PushBack(const T& data)
 	{
 		// [HEAD]<->[]<->[TAIL]
 		Node* tailFrontNode = _tail.front;
@@ -47,29 +47,58 @@ public:
 		tailFrontNode->back = newNode;
 		newNode->front = tailFrontNode;
 		_tail.front = newNode;
-		newNode->back = _tail;
+		newNode->back = &_tail;
 
 		_size++;
 	}
 
 	// 뒤에 데이터 삭제
-	void PopBack() 
+	void PopBack()
 	{
-		if (_size == 0) 
+		if (_size == 0)
 		{
 			throw::std::runtime_error("삭제할 데이터가 없을때 PopBack");
 		}
 
-		
+		Node* deleteNode = _tail.front;
+		Node* deleteNodeFront = deleteNode->front;
+
+		deleteNodeFront->back = &_tail;
+		_tail.front = deleteNodeFront;
+
+		delete deleteNode;
 		_size--;
 	}
 
-	// 중간 데이터 삽입
-	void Insert(Node* insertNode, const T& data) 
+	// 맨 처음 데이터 조회
+	const T& Front()
 	{
+		if (_size == 0)
+		{
+			throw::std::runtime_error("데이터가 없을때 Front");
+		}
 
+		Node* frontNodePtr = _head.back;
+		return frontNodePtr->data;
 	}
 
-	// 중간 데이터 삭제
+	// 맨 마지막 데이터 조회
+	const T& Back()
+	{
+		if (_size == 0)
+		{
+			throw::std::runtime_error("데이터가 없을때 Back");
+		}
+
+		Node* BackNodePtr = _tail.front;
+		return BackNodePtr->data;
+	}
+
+
+	// 데이터 없는지 확인
+	bool Empty()
+	{
+		return _size == 0;
+	}
 };
 
