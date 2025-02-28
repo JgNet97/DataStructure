@@ -28,7 +28,7 @@ private:
 public:
 	class Iterator
 	{
-	private:
+	public:
 		Node* current;
 	
 	public:
@@ -59,7 +59,13 @@ public:
 
 	~LinkedList()
 	{
-
+		Node* current = _head.back;
+		while (current != &_tail) 
+		{
+			Node* next = current->back;
+			delete current;
+			current = next;
+		}
 	}
 
 	// Iterator 지원을 위한 함수
@@ -121,11 +127,46 @@ public:
 		return BackNodePtr->data;
 	}
 
-
 	// 데이터 없는지 확인
 	bool Empty()
 	{
 		return _size == 0;
+	}
+
+	// 데이터 삽입
+	// it 위치에 value 삽입
+	void Insert(LinkedList<T>::Iterator& it, const T& data)
+	{
+		// ex [10, 20, 30 ,40]
+		// 20 위치에 50 삽입을 하면
+		// ex [10 50, 20, 30, 40]
+		Node* newNode = new Node(data);
+		Node* frontNode = it.current->front;
+
+		frontNode->back = newNode;
+		newNode->front = frontNode;
+		newNode->back = it.current;
+		it.current->front = newNode;
+
+		_size++;
+	}
+
+	// 데이터 삭제
+	// it 위치 요소 삭제
+	void Erase(const Iterator& it) 
+	{
+		// ex [10, 20, 30 ,40]
+		// 20을 삭제하면 
+		// ex [10, 30, 40]
+		Node* frontNode = it.current->front;
+		Node* backNode = it.current->back;
+
+		backNode->front = frontNode;
+		frontNode->back = backNode;
+		
+		delete it.current;
+
+		_size--;
 	}
 };
 

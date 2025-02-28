@@ -12,10 +12,18 @@ int main()
 		list.PushBack(i);
 	}
 
+	LinkedList<int>::Iterator start = list.Begin();
+	++start;
+	++start;
+	list.Insert(start, 10);
+	std::cout << *start << std::endl;
+	list.Erase(start);
+
 	for (LinkedList<int>::Iterator it = list.Begin(); it != list.End(); ++it) 
 	{
 		std::cout << *it << " ";
 	}
+
 	std::cout << std::endl;
 	return 0;
 }
