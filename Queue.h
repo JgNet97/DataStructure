@@ -24,7 +24,7 @@ private:
 public:
 	Queue() : _size(0)
 	{
-
+		int a = 3;
 	}
 
 	~Queue()
@@ -44,7 +44,7 @@ public:
 
 	bool Empty()
 	{
-		return _szie == 0;
+		return _size == 0;
 	}
 
 	int Size()
