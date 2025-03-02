@@ -15,10 +15,16 @@
     <ClCompile Include="LinkedList.cpp">
       <Filter>선형자료구조</Filter>
     </ClCompile>
+    <ClCompile Include="Queue.cpp">
+      <Filter>선형자료구조</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="LinkedList.h">
+      <Filter>선형자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="Queue.h">
       <Filter>선형자료구조</Filter>
     </ClInclude>
   </ItemGroup>
