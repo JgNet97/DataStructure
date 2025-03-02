@@ -24,7 +24,7 @@ private:
 public:
 	Queue() : _size(0)
 	{
-		int a = 3;
+
 	}
 
 	~Queue()
