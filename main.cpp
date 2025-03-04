@@ -1,29 +1,20 @@
 #include "pch.h"
-#include <list>
-#include <vector>
-#include <Windows.h>
+#include "Queue.h"
 using namespace std;
 int main() 
 {
-	LinkedList<int> list;
+	Queue<int> q;
 
-	for (int i = 0; i < 10; i++) 
+	for (int i = 20; i < 30; i++) 
 	{
-		list.PushBack(i);
+		q.Push(i);
 	}
 
-	LinkedList<int>::Iterator start = list.Begin();
-	++start;
-	++start;
-	list.Insert(start, 10);
-	std::cout << *start << std::endl;
-	list.Erase(start);
-
-	for (LinkedList<int>::Iterator it = list.Begin(); it != list.End(); ++it) 
+	while (!q.Empty()) 
 	{
-		std::cout << *it << " ";
+		std::cout << q.Front() << std::endl;
+		q.Pop();
 	}
 
-	std::cout << std::endl;
 	return 0;
 }
