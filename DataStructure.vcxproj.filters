@@ -18,6 +18,9 @@
     <ClCompile Include="Queue.cpp">
       <Filter>선형자료구조</Filter>
     </ClCompile>
+    <ClCompile Include="Stack.cpp">
+      <Filter>선형자료구조</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -25,6 +28,9 @@
       <Filter>선형자료구조</Filter>
     </ClInclude>
     <ClInclude Include="Queue.h">
+      <Filter>선형자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="Stack.h">
       <Filter>선형자료구조</Filter>
     </ClInclude>
   </ItemGroup>

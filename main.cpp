@@ -1,19 +1,19 @@
 #include "pch.h"
-#include "Queue.h"
+#include "Stack.h"
 using namespace std;
 int main() 
 {
-	Queue<int> q;
+	Stack<int> s;
 
 	for (int i = 20; i < 30; i++) 
 	{
-		q.Push(i);
+		s.Push(i);
 	}
 
-	while (!q.Empty()) 
+	while (!s.Empty()) 
 	{
-		std::cout << q.Front() << std::endl;
-		q.Pop();
+		std::cout << s.Top() << std::endl;
+		s.Pop();
 	}
 
 	return 0;

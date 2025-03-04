@@ -1,14 +1,14 @@
 #pragma once
 /****************
-	Queue
+	Stack
 ****************/
 template<typename T>
-class Queue
+class Stack
 {
 private:
 	class Node
 	{
-	public:	
+	public:
 		Node* front;
 		Node* back;
 		T data;
@@ -24,8 +24,9 @@ private:
 	Node _back;
 	int  _size;
 
+
 public:
-	Queue() : _size(0)
+	Stack() : _size(0)
 	{
 		_front.back = &_back;
 		_front.front = &_front;
@@ -33,7 +34,7 @@ public:
 		_back.back = &_back;
 	}
 
-	~Queue()
+	~Stack()
 	{
 		while (!Empty()) 
 		{
@@ -42,7 +43,7 @@ public:
 	}
 
 	// 데이터 삽입
-	void Push(const T& data)
+	void Push(const T& data) 
 	{
 		Node* newNode = new Node(data);
 		Node* lastNode = _back.front;
@@ -61,35 +62,33 @@ public:
 		{
 			throw::std::runtime_error("삭제할 데이터가 없을때 PopBack");
 		}
-
-		Node* deleteNode = _front.back;
-		Node* backNode = deleteNode->back;
-		backNode->front = &_front;
-		_front.back = backNode;
+		
+		Node* deleteNode = _back.front;
+		Node* frontNode = deleteNode->front;
+		frontNode->back = &_back;
+		_back.front = frontNode;
 
 		delete deleteNode;
 		_size--;
 	}
-
+	
 	// 맨 첫 데이터 확인
-	const T& Front() 
+	const T& Top() 
 	{
 		if (_size == 0)
 		{
 			throw::std::runtime_error("삭제할 데이터가 없을때 PopBack");
 		}
 
-		return _front.back->data;
+		return _back.front->data;
 	}
-
 	// 데이터 없는지 확인
-	bool Empty()
+	bool Empty() 
 	{
 		return _size == 0;
 	}
-
 	// 사이즈 확인
-	int Size()
+	int Size() 
 	{
 		return _size;
 	}
