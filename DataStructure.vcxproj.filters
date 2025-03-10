@@ -24,6 +24,9 @@
     <ClCompile Include="Deque.cpp">
       <Filter>선형자료구조</Filter>
     </ClCompile>
+    <ClCompile Include="ArrayList.cpp">
+      <Filter>선형자료구조</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h" />
@@ -37,6 +40,9 @@
       <Filter>선형자료구조</Filter>
     </ClInclude>
     <ClInclude Include="Deque.h">
+      <Filter>선형자료구조</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayList.h">
       <Filter>선형자료구조</Filter>
     </ClInclude>
   </ItemGroup>

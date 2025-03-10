@@ -1,30 +1,27 @@
 #include "pch.h"
-#include "Deque.h"
+#include "ArrayList.h"
 using namespace std;
 
 int main() 
 {
-	Deque<int> dq;
+	ArrayList<int> list;
 
-	dq.PushFront(1);
-	dq.PrintAll();
-	dq.PushFront(2);
-	dq.PrintAll();
-	dq.PushFront(3);
-	dq.PrintAll();
-	dq.PushBack(999);
-	dq.PrintAll();
-	dq.PushFront(1000);
-	dq.PrintAll();
-	dq.PushBack(4);
-	dq.PrintAll();
-	dq.PopBack();
-	dq.PrintAll();
-	dq.PopFront();
-	dq.PrintAll();
-	dq.PopFront();
-	dq.PrintAll();
-	dq.PopBack();
-	dq.PrintAll();
+	list.PushBack(1);
+	list.PushBack(2);
+	list.PushBack(3);
+	list.PushBack(4);
+	list.PushBack(5);
+	list.PushBack(6);
+	list.PushBack(7);
+	list.PushBack(8);
+	list.PushBack(9);
+	list.PopBack();
+	list.PopBack();
+	list.PopBack();
+	for (int i = 0; i < list.Size(); i++) 
+	{
+		std::cout << list[i] << " ";
+	}
+	std::cout << std::endl;
 	return 0;
 }
